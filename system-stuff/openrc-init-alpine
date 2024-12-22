@@ -1,0 +1,10 @@
+#!/sbin/openrc-run
+
+directory="<STUFF>/AC-Therm-Controller/"
+command_background=true
+pidfile="/run/${RC_SVCNAME}.pid"
+command="python3 ./src/main.py"
+
+depend() {
+  need net
+}
