@@ -1,10 +1,14 @@
 from apilib import *
 from pprint import pprint
 import logging
+from logging.handlers import RotatingFileHandler
 import time
-import os
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(
+        handlers=[RotatingFileHandler('./application.log', maxBytes=100000, backupCount=10)],
+        level=logging.INFO,
+        format="[%(asctime)s] %(levelname)s [%(name)s.%(funcName)s:%(lineno)d] %(message)s",
+        datefmt='%Y-%m-%dT%H:%M:%S')
 
 def main():
 
