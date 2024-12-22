@@ -1,0 +1,10 @@
+[project]
+name = "ac-therm-controller"
+version = "0.1.0"
+description = "Controls Samsung Smartthings A/C Units"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "requests>=2.32.3",
+    "toml>=0.10.2",
+]

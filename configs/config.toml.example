@@ -1,0 +1,182 @@
+# Configurazione generale
+
+[general]
+# Modalità di funzionamento automatico
+# Se true il programma gestisce tutto, altrimenti si fa tutto dal termostato
+modalita_auto = true
+
+# programma = ["off", "inverno", "estate", ...]
+programma = "inverno"
+
+date_festive_straordinarie = [
+    "24-12",    # Vigilia di Natale
+    "27-12",    # Ponte
+    "30-12",    # Ponte
+    "31-12",    # Vigilia di Capodanno
+    "01-01",    # Capodanno
+    "06-01",    # Epifania
+    "25-04",    # Liberazione
+    "01-05",    # Festa del Lavoro
+    "02-06",    # Festa della Repubblica
+    "15-08",    # Ferragosto
+    "01-11",    # Ognissanti
+    "08-12",    # Immacolata Concezione
+    "25-12",    # Natale
+    "26-12",    # Santo Stefano
+]
+
+
+
+# Nomi delle unità come appaiono in Smartthings
+[units]
+unit01 = "PT Open Space 1"
+unit02 = "PT Open Space 2"
+unit03 = "PT Segreteria"
+unit04 = "PT Vano Scale"
+unit11 = "P1 Open Space 1"
+unit12 = "P1 Open Space 2"
+unit13 = "P1 Sala Riunioni"
+unit14 = "P1 Vano Scale"
+
+[programmi]
+# Qui si possono aggiungere ulteriori programmi
+
+# Inizio programma inverno
+[programmi.inverno]
+
+# Temperature per l'inverno (in riscaldamento)
+# unit01 = [prog1, prog2, prog3, ...]
+# Se temperatura = 0, l'unità è spenta
+[programmi.inverno.temperature]
+unit01 = [17.0, 22.5, 23.0]
+unit02 = [17.0, 22.5, 23.0]
+unit03 = [17.0, 22.5, 23.0]
+unit04 = [17.0, 22.5, 23.0]
+unit11 = [17.0, 22.0, 23.0]
+unit12 = [17.0, 22.0, 23.0]
+unit13 = [17.0, 21.0, 23.0]
+unit14 = [17.0, 22.5, 23.0]
+
+[programmi.inverno.orari]
+
+# Lista di fasce orarie per i giorni feriali
+[[programmi.inverno.orari.feriali]]
+inizio = "00:00"
+fine = "05:30"
+programma = 1
+
+[[programmi.inverno.orari.feriali]]
+inizio = "05:30"
+fine = "12:30"
+programma = 3
+
+[[programmi.inverno.orari.feriali]]
+inizio = "12:30"
+fine = "18:00"
+programma = 2
+
+[[programmi.inverno.orari.feriali]]
+inizio = "18:00"
+fine = "00:00"
+programma = 1
+
+# Lista di fasce orarie per i giorni festivi
+[[programmi.inverno.orari.festivi]]
+inizio = "00:00"
+fine = "05:30"
+programma = 1
+
+[[programmi.inverno.orari.festivi]]
+inizio = "05:30"
+fine = "18:30"
+programma = 1
+
+[[programmi.inverno.orari.festivi]]
+inizio = "18:30"
+fine = "00:00"
+programma = 1
+
+
+# Inizio programma estate
+[programmi.estate]
+
+# Temperature per l'estate (in raffreddamento)
+# unit01 = [prog1, prog2, prog3]
+[temperatura.estate]
+unit01 = [24.0, 22.0, 20.0]
+unit02 = [24.0, 22.0, 20.0]
+unit03 = [24.0, 22.0, 20.0]
+unit04 = [24.0, 22.0, 20.0]
+unit11 = [24.0, 22.0, 20.0]
+unit12 = [24.0, 22.0, 20.0]
+unit13 = [24.0, 22.0, 20.0]
+unit14 = [24.0, 22.0, 20.0]
+
+[programmi.estate.orari]
+
+# Lista di fasce orarie per i giorni feriali
+[[programmi.estate.orari.feriali]]
+inizio = "00:00"
+fine = "05:30"
+programma = 1
+
+[[programmi.estate.orari.feriali]]
+inizio = "05:30"
+fine = "12:30"
+programma = 3
+
+[[programmi.estate.orari.feriali]]
+inizio = "12:30"
+fine = "18:00"
+programma = 2
+
+[[programmi.estate.orari.feriali]]
+inizio = "18:00"
+fine = "00:00"
+programma = 1
+
+# Lista di fasce orarie per i giorni festivi
+[[programmi.estate.orari.festivi]]
+inizio = "00:00"
+fine = "05:30"
+programma = 1
+
+[[programmi.estate.orari.festivi]]
+inizio = "05:30"
+fine = "18:30"
+programma = 1
+
+[[programmi.estate.orari.festivi]]
+inizio = "18:30"
+fine = "00:00"
+programma = 1
+
+
+# Inizio programma off (tutte le temperature a 0)
+[programmi.off]
+
+[programmi.off.temperature]
+unit01 = [0.0]
+unit02 = [0.0]
+unit03 = [0.0]
+unit04 = [0.0]
+unit11 = [0.0]
+unit12 = [0.0]
+unit13 = [0.0]
+unit14 = [0.0]
+
+[programmi.off.orari]
+
+[[programmi.off.orari.feriali]]
+inizio = "00:00"
+fine = "00:00"
+programma = 1
+
+[[programmi.off.orari.festivi]]
+inizio = "00:00"
+fine = "00:00"
+programma = 1
+
+
+# [deviazione_termostato]
+# deviazione = 2 # +-2°C rispetto alla temperatura impostata (da termostato)
